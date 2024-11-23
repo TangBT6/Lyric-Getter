@@ -7,6 +7,7 @@ import cn.lyric.getter.hook.app.Apple
 import cn.lyric.getter.hook.app.Aqzscn
 import cn.lyric.getter.hook.app.Bodian
 import cn.lyric.getter.hook.app.Flamingo
+import cn.lyric.getter.hook.app.Gramophone
 import cn.lyric.getter.hook.app.Huawei
 import cn.lyric.getter.hook.app.Kde
 import cn.lyric.getter.hook.app.Kugou
@@ -37,7 +38,7 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage
 class MainHook : IXposedHookLoadPackage, IXposedHookZygoteInit {
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         EzXHelper.initHandleLoadPackage(lpparam)
-        LogTool.init("Lyrics Getter", { BuildConfig.DEBUG })
+        LogTool.init("Lyrics Getter", { BuildConfig.DEBUG }, BuildConfig.DEBUG)
         when (lpparam.packageName) {
             "com.android.systemui" -> initHooks(SystemUi)
             "com.tencent.qqmusic" -> initHooks(QQMusic)
@@ -65,6 +66,7 @@ class MainHook : IXposedHookLoadPackage, IXposedHookZygoteInit {
             "yos.music.player" -> initHooks(Flamingo)
             "org.kde.kdeconnect_tp" -> initHooks(Kde)
             "com.huawei.music" -> initHooks(Huawei)
+            "org.akanework.gramophone" -> initHooks(Gramophone)
             else -> initHooks(Api)
         }
     }
