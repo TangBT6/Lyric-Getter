@@ -30,6 +30,7 @@ import cn.lyric.getter.hook.app.Oppo
 import cn.lyric.getter.hook.app.Poweramp
 import cn.lyric.getter.hook.app.SystemUi
 import cn.lyric.getter.hook.app.Toside
+import cn.lyric.getter.hook.app.TosideMod
 import cn.xiaowine.xkt.LogTool
 import cn.xiaowine.xkt.LogTool.log
 import com.github.kyuubiran.ezxhelper.EzXHelper
@@ -54,6 +55,7 @@ class MainHook : IXposedHookLoadPackage, IXposedHookZygoteInit {
             "com.meizu.media.music" -> initHooks(Meizu)
             "com.r.rplayer" -> initHooks(RPlayer)
             "cn.toside.music.mobile" -> initHooks(Toside)
+            "com.ikunshare.music.mobile" -> initHooks(TosideMod)
             "com.apple.android.music" -> initHooks(Apple)
             "com.luna.music" -> initHooks(Luna)
             "com.xuncorp.qinalt.music" -> initHooks(Qinalt)
